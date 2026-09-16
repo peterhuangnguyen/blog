@@ -27,3 +27,8 @@ export async function getAllPosts(): Promise<Post[]> {
     };
   });
 }
+
+export function getPostBySlug(slug: string) {
+  const filePath = path.join(process.cwd(), 'posts', `${slug}.md`);
+  return fs.readFileSync(filePath, 'utf-8');
+}
